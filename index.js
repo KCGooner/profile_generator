@@ -1,7 +1,7 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 
-function promptUser() {
+function userPrompt() {
     return inquirer.prompt([
         {
             type: "input",
@@ -9,23 +9,26 @@ function promptUser() {
             message: "What is your GitHub username?"
         },
         {
-            type: "input",
+            type: "checkbox",
             name: "color",
-            message: "Where is your favorite color?"
+            message: "Choose preferred color:",
+            choices: ["Red", "Pink", "Green", "Blue"]
         }
     ]);
 }
+
+userPrompt();
 
 // const questions = [
 
 // ];
 
 
-function writeToFile(fileName, data) {
+// function writeToFile(fileName, data) {
 
-}
+// }
 
-function init() {
+// function init() {
 
-    init();
+//     init();
 // }
