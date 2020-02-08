@@ -1,0 +1,28 @@
+{
+  "name": "profile_generator",
+  "version": "1.0.0",
+  "description": "profile generator accessing GitHub Username",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KCGooner/profile_generator.git"
+  },
+  "keywords": [
+    "profile",
+    "generator",
+    "GitHub",
+    "Username"
+  ],
+  "author": "Joe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KCGooner/profile_generator/issues"
+  },
+  "homepage": "https://github.com/KCGooner/profile_generator#readme",
+  "dependencies": {
+    "inquirer": "^7.0.4"
+  }
+}
