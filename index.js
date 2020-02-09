@@ -1,6 +1,8 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const util = require("util")
+// const axios = require("axios");
+// const pdf = require("html-pdf");
+const util = require("util");
 
 const writeFileAsync = util.promisify(fs.writeFile)
 
@@ -62,7 +64,70 @@ function generateHTML(data) {
         <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.4.1.js"integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
         <title>Document</title>
-        <body>Hello World!</body>
+        <body>
+  <div class="wrapper">
+    <div class="photo-header">
+      <img src="">
+      <h1>
+        Hi!
+      </h1>
+      <h2>
+        My name is blank
+      </h2>
+      <div class="links-nav">
+        <a class="nav-link">Filler</a>
+        <a class="nav-link">GitHub</a>
+        <a class="nav-link">Blog</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <div class="container">
+
+      <div class="row">
+        <h3 class="col">
+          Bio...
+        </h3>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <h3>Public Repos</h3>
+            <h4>#'s</h4>
+          </div>
+        </div>
+
+        <div class="card">
+          <h5>Followers</h5>
+          <h5>#'s</h5>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card">
+          <h6>GitHub Stars</h6>
+          <h6>#'s</h6>
+        </div>
+      </div>
+
+      <div class="card">
+        <h6>Followers</h6>
+        <h6>#'s</h6>
+      </div>
+
+    </div>
+
+
+
+  </main>
+
+
+
+
+</body>
         <style>
             @page {
               margin: 0;
