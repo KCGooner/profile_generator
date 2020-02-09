@@ -62,6 +62,7 @@ function generateHTML(data) {
         <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.4.1.js"integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
         <title>Document</title>
+        <body>Hello World!</body>
         <style>
             @page {
               margin: 0;
