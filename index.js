@@ -5,51 +5,51 @@ const util = require("util");
 const writeFileAsync = util.promisify(fs.writeFile)
 
 function userPrompt() {
-    return inquirer.prompt([
-        {
-            type: "input",
-            name: "username",
-            message: "What is your GitHub username?"
-        },
-        {
-            type: "checkbox",
-            name: "color",
-            message: "Choose preferred color:",
-            choices: ["red", "pink", "green", "blue"]
-        }
-    ]);
+  return inquirer.prompt([
+    {
+      type: "input",
+      name: "username",
+      message: "What is your GitHub username?"
+    },
+    {
+      type: "checkbox",
+      name: "color",
+      message: "Choose preferred color:",
+      choices: ["red", "pink", "green", "blue"]
+    }
+  ]);
 }
 
 const colors = {
-    green: {
-        wrapperBackground: "#E6E1C3",
-        headerBackground: "#C1C72C",
-        headerColor: "black",
-        photoBorderColor: "#black"
-    },
-    blue: {
-        wrapperBackground: "#5F64D3",
-        headerBackground: "#26175A",
-        headerColor: "white",
-        photoBorderColor: "#73448C"
-    },
-    pink: {
-        wrapperBackground: "#879CDF",
-        headerBackground: "#FF8374",
-        headerColor: "white",
-        photoBorderColor: "#FEE24C"
-    },
-    red: {
-        wrapperBackground: "#DE9967",
-        headerBackground: "#870603",
-        headerColor: "white",
-        photoBorderColor: "white"
-    }
+  green: {
+    wrapperBackground: "#E6E1C3",
+    headerBackground: "#C1C72C",
+    headerColor: "black",
+    photoBorderColor: "#black"
+  },
+  blue: {
+    wrapperBackground: "#5F64D3",
+    headerBackground: "#26175A",
+    headerColor: "white",
+    photoBorderColor: "#73448C"
+  },
+  pink: {
+    wrapperBackground: "#879CDF",
+    headerBackground: "#FF8374",
+    headerColor: "white",
+    photoBorderColor: "#FEE24C"
+  },
+  red: {
+    wrapperBackground: "#DE9967",
+    headerBackground: "#870603",
+    headerColor: "white",
+    photoBorderColor: "white"
+  }
 };
 
 function generateHTML(data) {
-    const color = colors[data.color[0]]
-    return `<!DOCTYPE html>
+  const color = colors[data.color[0]]
+  return `<!DOCTYPE html>
   <html lang="en">
      <head>
         <meta charset="UTF-8" />
@@ -63,69 +63,64 @@ function generateHTML(data) {
         <script src="https://code.jquery.com/jquery-3.4.1.js"integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
         <title>Document</title>
         <body>
-  <div class="wrapper">
-    <div class="photo-header">
-      <img src="">
-      <h1>
-        Hi!
-      </h1>
-      <h2>
-        My name is blank
-      </h2>
-      <div class="links-nav">
-      <a class="nav-link"><i class="fas fa-location-arrow"></i>Location</a>
-      <a class="nav-link"><i class="fab fa-github-alt"></i>GitHub</a>
-      <a class="nav-link"><i class="fas fa-rss"></i>Blog</a>
-      </div>
-    </div>
-  </div>
-
-  <main>
-
-    <div class="container">
-
-      <div class="row">
-        <h3 class="col">
-          Bio...
-        </h3>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <h3>Public Repos</h3>
-            <h4>#'s</h4>
+        <div class="wrapper">
+          <div class="photo-header">
+            <img src="">
+            <h1>
+              Hi!
+            </h1>
+            <h2>
+              My name is Joe Huelsman
+            </h2>
+            <h6>
+              Currently @ (Job Location)
+            </h6>
+            <div class="links-nav">
+              <a class="nav-link"><i class="fas fa-location-arrow"></i>Location</a>
+              <a class="nav-link"><i class="fab fa-github-alt"></i>GitHub</a>
+              <a class="nav-link"><i class="fas fa-rss"></i>Blog</a>
+            </div>
           </div>
         </div>
-
-        <div class="card">
-          <h5>Followers</h5>
-          <h5>#'s</h5>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card">
-          <h6>GitHub Stars</h6>
-          <h6>#'s</h6>
-        </div>
-      </div>
-
-      <div class="card">
-        <h6>Followers</h6>
-        <h6>#'s</h6>
-      </div>
-
-    </div>
-
-
-
-  </main>
-
-
-
-
-</body>
+      
+        <main>
+      
+          <div class="container">
+      
+            <div class="row">
+              <h3 class="col">
+                Bio...
+              </h3>
+            </div>
+      
+            <div class="row">
+              <div class="col card">
+                <h3>Public Repositories</h3>
+                <h5>#</h5>
+              </div>
+              <div class="col card">
+                <h3>Followers</h3>
+                <h5>#</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col card">
+                <h3>GitHub Stars</h3>
+                <h5>#</h5>
+              </div>
+      
+              <div class="col card">
+                <h3>Following</h3>
+                <h5>#</h5>
+              </div>
+            </div>
+          </div>
+        </main>
+      
+      
+      
+      
+      </body>
         <style>
             @page {
               margin: 0;
@@ -270,17 +265,17 @@ function generateHTML(data) {
 
 
 userPrompt()
-    .then(function (data) {
-        const html = generateHTML(data);
+  .then(function (data) {
+    const html = generateHTML(data);
 
-        return writeFileAsync("index.html", html);
-    })
-    .then(function () {
-        console.log("Writing to PDF file!")
-    })
-    .catch(function (err) {
-        console.log(err)
-    });
+    return writeFileAsync("index.html", html);
+  })
+  .then(function () {
+    console.log("Writing to PDF file!")
+  })
+  .catch(function (err) {
+    console.log(err)
+  });
 
 // function init() {
 
