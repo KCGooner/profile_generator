@@ -154,6 +154,7 @@ function generateHTML(data) {
            h1, h2, h3, h4, h5, h6 {
            font-family: 'BioRhyme', serif;
            margin: 0;
+           text-align: center;
            }
            h1 {
            font-size: 3em;
