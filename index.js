@@ -35,4 +35,22 @@ function writeToFile(fileName, html) {
   });
 }
 
+function init() {
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'user',
+      message: 'What is your GitHub username?',
+    },
+    {
+      type: 'checkbox',
+      message: 'Choose color?',
+      name: 'color',
+      choices: [
+        'blue',
+        'green',
+        'red',
+        'pink',
+      ],
+    },
 
