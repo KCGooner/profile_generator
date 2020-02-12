@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/KCGooner/profile_generator#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "inquirer": "^7.0.4"
   }
 }

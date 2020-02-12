@@ -1,6 +1,8 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 const util = require("util");
+const axios = require('axios');
+// const pdf = require('html-pdf');
 
 const writeFileAsync = util.promisify(fs.writeFile)
 
@@ -19,6 +21,9 @@ function userPrompt() {
     }
   ]);
 }
+
+// axios
+//   .get(`https://api.github.com/users/${data.user}`)
 
 const colors = {
   green: {
@@ -56,7 +61,7 @@ function generateHTML(data) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
+        
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
 
         <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
@@ -64,22 +69,15 @@ function generateHTML(data) {
         <title>Document</title>
         <body>
         <div class="wrapper">
-          <div class="photo-header">
-            <img src="">
-            <h1>
-              Hi!
-            </h1>
-            <h2>
-              My name is Joe Huelsman
-            </h2>
-            <h6>
-              Currently @ (Job Location)
-            </h6>
-            <div class="links-nav">
-              <a class="nav-link"><i class="fas fa-location-arrow"></i>Location</a>
-              <a class="nav-link"><i class="fab fa-github-alt"></i>GitHub</a>
-              <a class="nav-link"><i class="fas fa-rss"></i>Blog</a>
-            </div>
+        <div class="photo-header">
+          <img src="">
+          <h1>Hi!</h1>
+          <h2>My name is Joe Huelsman</h2>
+          <h6>Currently @ </h6>
+          <div class="links-nav">
+            <a href="http://maps.google.com/?q=Overland Park KS" class="nav-link"><i class="fas fa-location-arrow">Overland Park, KS</i></a>
+            <a href="https://github.com/CodeMaster-jab" class="nav-link"><i class="fab fa-github-alt"> GitHub</i></a>
+            <a href="https://kcgooner.github.io/responsive_portfolio/" class="nav-link">Portfolio</i></a>
           </div>
         </div>
       
