@@ -1,6 +1,6 @@
-const genHTML = require('./genHTML.js');
-const inquirer = require('inquirer');
+const genHTML = require('./genHTML');
 const fs = require('fs');
+const inquirer = require('inquirer');
 const axios = require('axios');
 const pdf = require('html-pdf');
 
@@ -35,7 +35,7 @@ function writeToFile(fileName, html) {
   });
 }
 
-function init() {
+function userPrompt() {
   inquirer.prompt([
     {
       type: 'input',
@@ -44,7 +44,7 @@ function init() {
     },
     {
       type: 'checkbox',
-      message: 'Choose color?',
+      message: 'Choose color:',
       name: 'color',
       choices: [
         'blue',
@@ -53,4 +53,30 @@ function init() {
         'pink',
       ],
     },
+  ]).then((data) => {
+    const filename = data.user.toLowerCase().split(' ').join('') + '.html';
+    gitHubData.user = data.user;
+    gitHubData.color = data.color;
 
+    axios
+      .get(`https://api.github.com/users/${data.user}`)
+      .then((res) => {
+        if (res.status === 200) {
+          gitHubData.name = res.data.name;
+          gitHubData.location = res.data.location;
+          gitHubData.company = res.data.company;
+          gitHubData.bio = res.data.bio;
+          gitHubData.public_repos = res.data.public_repos;
+          gitHubData.public_gists = res.data.public_gists;
+          gitHubData.followers = res.data.followers;
+          gitHubData.following = res.data.following;
+          gitHubData.html_url = res.data.html_url;
+          gitHubData.avatar_url = res.data.avatar_url;
+          const html = genHTML.generateHTML(gitHubData);
+          writeToFile(filename, html);
+        }
+      });
+  });
+}
+
+userPrompt();
