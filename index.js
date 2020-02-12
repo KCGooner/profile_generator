@@ -19,4 +19,20 @@ const gitHubData = {
   avatar_url: "",
 };
 
+function writeToFile(fileName, html) {
+  console.log('Creating PDF...');
+  fs.writeFile(fileName, html, (err) => {
+    if (err) {
+      return console.log(err);
+    }
+  });
+  const options = {
+    format: 'Letter',
+  };
+  pdf.create(html, options).toFile(`./${gitHubData.user}.pdf`, (err) => {
+    if (err) return console.log(err);
+    console.log('PDF Created!');
+  });
+}
+
 
