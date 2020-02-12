@@ -49,7 +49,7 @@ function generateHTML(data) {
           <div class="links-nav">
             <a href="http://maps.google.com/?q=Overland Park, KS" class="nav-link"><i class="fas fa-location-arrow">Overland Park, KS</i></a>
             <a href="https://github.com/KCGooner" class="nav-link"><i class="fab fa-github-alt"> GitHub</i></a>
-            <a href="https://kcgooner.github.io/responsive_portfolio/" class="nav-link">Portfolio</i></a>
+            <a href="https://kcgooner.github.io/responsive_portfolio/" class="nav-link">Portfolio</a>
           </div>
         </div>
       
