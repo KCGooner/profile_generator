@@ -5,18 +5,7 @@ const axios = require('axios');
 const pdf = require('html-pdf');
 
 const gitHubData = {
-  user: "",
-  name: "",
-  color: "",
-  location: "",
-  company: "",
-  bio: "",
-  following: "",
-  followers: "",
-  public_repos: "",
-  public_gists: "",
-  html_url: "",
-  avatar_url: "",
+  user: "", name: "", color: "", location: "", company: "", bio: "", following: "", followers: "", public_repos: "", public_gists: "", html_url: "", avatar_url: ""
 };
 
 function writeToFile(fileName, html) {
@@ -78,5 +67,4 @@ function userPrompt() {
       });
   });
 }
-
 userPrompt();
