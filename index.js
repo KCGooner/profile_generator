@@ -9,7 +9,6 @@ const gitHubData = {
 };
 
 function writeToFile(fileName, html) {
-  console.log('Creating PDF...');
   fs.writeFile(fileName, html, (err) => {
     if (err) {
       return console.log(err);
@@ -29,7 +28,7 @@ function userPrompt() {
     {
       type: 'input',
       name: 'user',
-      message: 'What is your GitHub username?',
+      message: 'GitHub username?',
     },
     {
       type: 'checkbox',
