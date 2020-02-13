@@ -50,7 +50,7 @@ module.exports = {
             <h2>My name is ${data.name} !</h2>
             <h6>Currently @ ${data.company}</h6>
             <div class="links-nav">
-              <a href="http://maps.google.com/?q=${data.location}" class="nav-link"><i class="fas fa-location-arrow">Overland Park, KS</i></a>
+              <a href="http://maps.google.com/?q=${data.location}" class="nav-link"><i class="fas fa-location-arrow"></i></a>
               <a href=${data.html_url} class="nav-link"><i class="fab fa-github-alt"> GitHub</i></a>
               <a href=${data.blog} class="nav-link">Portfolio</a>
             </div>

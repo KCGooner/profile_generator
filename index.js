@@ -16,7 +16,7 @@ function writeToFile(fileName, html) {
     }
   });
   const options = {
-    format: 'Letter',
+    format: 'A3',
   };
   pdf.create(html, options).toFile(`./${gitHubData.user}.pdf`, (err) => {
     if (err) return console.log(err);
