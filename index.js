@@ -16,7 +16,7 @@ function writeToFile(fileName, html) {
     }
   });
   const options = {
-    format: 'A3',
+    format: 'Letter',
   };
   pdf.create(html, options).toFile(`./${gitHubData.user}.pdf`, (err) => {
     if (err) return console.log(err);
@@ -54,7 +54,6 @@ function userPrompt() {
         process.exit(1)
       })
       .then((res) => {
-        if (res.status === 200) {
           gitHubData.name = res.data.name;
           gitHubData.location = res.data.location;
           gitHubData.company = res.data.company;
@@ -67,7 +66,6 @@ function userPrompt() {
           gitHubData.avatar_url = res.data.avatar_url;
           const html = genHTML.generateHTML(gitHubData);
           writeToFile(filename, html);
-        }
       });
   });
 }
